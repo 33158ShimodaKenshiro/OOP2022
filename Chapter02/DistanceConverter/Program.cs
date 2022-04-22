@@ -13,31 +13,27 @@ namespace DistanceConverter {
             else {
 
                 PrintFeetToMeterList(1, 10);
-                }
-
             }
-        private static void PrintFeetToMeterList(int start, int stop) {
-            for (int feet = start;feet <= 10; feet++) {
-                double meter = FeetToMeter(feet);
+
+        }
+        private static void PrintFeetToMeterList(int start, int stop) { 
+            FeetConverter fc = new FeetConverter();
+            for (int feet = start; feet <= 10; feet++) {
+                double meter = fc.FromMeter(feet);
                 Console.WriteLine("{0} ft = {1:0.0000}ft", feet, meter);
             }
 
-            }
-            private static void PrintMeterToFeetList(int start, int stop) {
-                for (int meter = 1; meter <= 10; meter++) {
-                    double feet = MeterToFeet(meter);
-                    Console.WriteLine("{0} ft = {1:0.0000}ft", feet, meter);
-                }
-
-
-                //メートルからフィートを求める
-                static double MeterToFeet(int meter) {
-                return meter / 0.3048;
-            }
-                }
-                static double MeterToFeet(int meter) {
-                    return meter / 0.3048;
-                }
-            }
         }
+        private static void PrintMeterToFeetList(int start, int stop) {
+            FeetConverter fc = new FeetConverter();
+            for (int meter = 1; meter <= 10; meter++) {
+                double feet = fc.FromMeter(meter);
+                Console.WriteLine("{0} ft = {1:0.0000}ft", feet, meter);
+            }
 
+
+
+        }
+    }
+}
+            
