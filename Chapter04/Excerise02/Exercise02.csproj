@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{95141FB0-BDFA-42C4-81AA-B1CD43384B4E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Excercise01</RootNamespace>
-    <AssemblyName>Excercise01</AssemblyName>
+    <ProjectGuid>{EBDA7375-03B9-4189-8155-AA6CAA824B69}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Excerise02</RootNamespace>
+    <AssemblyName>Excerise02</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,9 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,10 +45,19 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YearMonth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Chapter03\Exercise01\Exercise01.csproj">
+      <Project>{b42d4c68-d2ea-4ce5-b8cd-3b68df38b8c1}</Project>
+      <Name>Exercise01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Excercise01\Excercise01.csproj">
+      <Project>{95141fb0-bdfa-42c4-81aa-b1cd43384b4e}</Project>
+      <Name>Excercise01</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
