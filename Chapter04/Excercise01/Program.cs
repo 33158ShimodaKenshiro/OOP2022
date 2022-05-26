@@ -12,9 +12,9 @@ namespace Excercise01 {
             var check = ym.Is21Century;
             var test = ym.AddOneMonth();
 
-            Console.WriteLine(ym.ToString(){
+            Console.WriteLine();
             }
             
         }
     }
-}
+
