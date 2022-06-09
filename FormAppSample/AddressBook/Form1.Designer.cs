@@ -29,7 +29,7 @@ namespace AddressBook {
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPersons = new System.Windows.Forms.DataGridView();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbCompany = new System.Windows.Forms.TextBox();
             this.tbAddress = new System.Windows.Forms.TextBox();
@@ -42,8 +42,8 @@ namespace AddressBook {
             this.pbPicture = new System.Windows.Forms.PictureBox();
             this.btPictureClear = new System.Windows.Forms.Button();
             this.btPictureOpen = new System.Windows.Forms.Button();
-            this.dgvPersons = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ofdFileOpenDialog = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +56,7 @@ namespace AddressBook {
             this.label1.Size = new System.Drawing.Size(66, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "名前";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -97,14 +98,14 @@ namespace AddressBook {
             this.label5.TabIndex = 0;
             this.label5.Text = "グループ";
             // 
-            // dataGridView1
+            // dgvPersons
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 273);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(749, 154);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPersons.Location = new System.Drawing.Point(39, 274);
+            this.dgvPersons.Name = "dgvPersons";
+            this.dgvPersons.RowTemplate.Height = 21;
+            this.dgvPersons.Size = new System.Drawing.Size(749, 154);
+            this.dgvPersons.TabIndex = 1;
             // 
             // tbName
             // 
@@ -113,6 +114,7 @@ namespace AddressBook {
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(313, 29);
             this.tbName.TabIndex = 2;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // tbCompany
             // 
@@ -188,6 +190,7 @@ namespace AddressBook {
             this.btAddPerson.TabIndex = 4;
             this.btAddPerson.Text = "追加";
             this.btAddPerson.UseVisualStyleBackColor = true;
+            this.btAddPerson.Click += new System.EventHandler(this.btAddPerson_Click);
             // 
             // pbPicture
             // 
@@ -214,10 +217,11 @@ namespace AddressBook {
             this.btPictureOpen.TabIndex = 6;
             this.btPictureOpen.Text = "開く...";
             this.btPictureOpen.UseVisualStyleBackColor = true;
+            this.btPictureOpen.Click += new System.EventHandler(this.btPictureOpen_Click);
             // 
-            // dgvPersons
+            // ofdFileOpenDialog
             // 
-            this.dgvPersons.FileName = "openFileDialog1";
+            this.ofdFileOpenDialog.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -236,7 +240,7 @@ namespace AddressBook {
             this.Controls.Add(this.tbCompany);
             this.Controls.Add(this.tbMailAddress);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvPersons);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -245,7 +249,7 @@ namespace AddressBook {
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -259,7 +263,7 @@ namespace AddressBook {
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPersons;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.TextBox tbCompany;
         private System.Windows.Forms.TextBox tbAddress;
@@ -272,7 +276,7 @@ namespace AddressBook {
         private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.Button btPictureClear;
         private System.Windows.Forms.Button btPictureOpen;
-        private System.Windows.Forms.OpenFileDialog dgvPersons;
+        private System.Windows.Forms.OpenFileDialog ofdFileOpenDialog;
     }
 }
 
