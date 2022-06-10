@@ -49,10 +49,81 @@ namespace AddressBook {
                 MailAddress = tbMailAddress.Text,
                 Address = tbAddress.Text,
                 Company = tbCompany.Text,
-                Picture = pbPicture.Image
+                Picture = pbPicture.Image,
+                listGroup = GetCheckBoxGroup(),
 
             };
             listPerson.Add(newPerson);
+        }
+
+        //チェックボックスにセットされている値をリストとして取り出す
+        private List<Person.GroupType> GetCheckBoxGroup() {
+            var listGroup = new List<Person.GroupType>();
+            if (cbFamily.Checked) {
+                listGroup.Add(Person.GroupType.家族);
+            }
+            if (cbFriend.Checked) {
+                listGroup.Add(Person.GroupType.友人);
+            }
+            if (cbWork.Checked) {
+                listGroup.Add(Person.GroupType.仕事);
+            }
+            if (cbOther.Checked) {
+                listGroup.Add(Person.GroupType.その他);
+            }
+
+
+
+
+
+
+            return listGroup;
+        }
+
+        private void pbPicture_Click(object sender, EventArgs e) {
+
+            pbPicture.Image = null;
+
+
+        }
+        //データグリッドビューをクリックしたときのイベントハンドラ
+        private void dgvPersons_Click(object sender, EventArgs e)
+            {
+
+            int index = dgvPersons.CurrentRow.Index;
+            tbName.Text = listPerson[index].Name;
+            tbMailAddress.Text = listPerson[index].MailAddress;
+            tbAddress.Text = listPerson[index].Address;
+            tbCompany.Text = listPerson[index].Company;
+            pbPicture.Image = listPerson[index].Picture;
+
+            foreach (var group in listPerson[index].listGroup) 
+                {
+                switch (group) {
+                    case Person.GroupType.家族:
+                        cbFamily.Checked = true;
+                        break;
+                    case Person.GroupType.友人:
+                        break;
+                    case Person.GroupType.仕事:
+                        break;
+                    case Person.GroupType.その他:
+                        break;
+                    default:
+                        break;
+                }
+
+
+
+            }
+
+
+           
+
+
+
+
+
         }
     }
 }
