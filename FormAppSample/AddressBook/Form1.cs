@@ -97,6 +97,13 @@ namespace AddressBook {
             tbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
 
+            groupCheckBoxAllClear();
+
+
+
+
+
+
             foreach (var group in listPerson[index].listGroup) 
                 {
                 switch (group) {
@@ -104,10 +111,13 @@ namespace AddressBook {
                         cbFamily.Checked = true;
                         break;
                     case Person.GroupType.友人:
+                        cbFriend.Checked = true;
                         break;
                     case Person.GroupType.仕事:
+                        cbWork.Checked = true;
                         break;
                     case Person.GroupType.その他:
+                        cbOther.Checked = true;
                         break;
                     default:
                         break;
@@ -123,6 +133,11 @@ namespace AddressBook {
 
 
 
+
+        }
+
+        private void groupCheckBoxAllClear() {
+            cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
 
         }
     }
