@@ -54,6 +54,7 @@ namespace AddressBook {
 
             };
             listPerson.Add(newPerson);
+            
         }
 
         //チェックボックスにセットされている値をリストとして取り出す
@@ -89,7 +90,7 @@ namespace AddressBook {
         //データグリッドビューをクリックしたときのイベントハンドラ
         private void dgvPersons_Click(object sender, EventArgs e)
             {
-
+            if (dgvPersons.CurrentRow == null) return;
             int index = dgvPersons.CurrentRow.Index;
             tbName.Text = listPerson[index].Name;
             tbMailAddress.Text = listPerson[index].MailAddress;
@@ -140,5 +141,30 @@ namespace AddressBook {
             cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
 
         }
+        //更新ボタンが押されたときの処理
+        private void btUpdate_Click(object sender, EventArgs e) {
+            listPerson[dgvPersons.CurrentRow.Index].Name = tbName.Text;
+            listPerson[dgvPersons.CurrentRow.Index].MailAddress = tbAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Company = tbCompany.Text;
+            listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
+
+            dgvPersons.Refresh();//データグリッドビュー更新
+
+
+
+        }
+        //削除ボタン
+        private void btDelete_Click(object sender, EventArgs e) {
+
+            listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
+
+        }
+
+        private void Form1_Lord(object sender,EventArgs e) { 
+
+        }
+
     }
 }
