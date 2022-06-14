@@ -54,6 +54,7 @@ namespace AddressBook {
 
             };
             listPerson.Add(newPerson);
+            dgvPersons.Rows[dgvPersons.RowCount - 1].Selected = true;
             
         }
 
@@ -160,9 +161,14 @@ namespace AddressBook {
 
             listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
 
+            if (listPerson.Count() == 0)
+                btDelete.Enabled = false;
+                btUpdate.Enabled = false;
+
         }
 
         private void Form1_Lord(object sender,EventArgs e) { 
+            //btDelete.Enabled = false;//排除ボタンをマスク
 
         }
 
