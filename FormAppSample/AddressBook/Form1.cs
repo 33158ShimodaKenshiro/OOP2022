@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -62,19 +64,28 @@ namespace AddressBook {
 
             if (listPerson.Count() > 0) {
 
-                btDelete.Enabled = true;
+                btDelete.Enabled = true;setCbCompany(cbCompany.Text);
                 btUpdate.Enabled = true;
             }
+            setCbCompany(cbCompany.Text);
+            
             //コンボボックスに会社名を登録する
+             void setCbCompany(string company) {
 
-            if (!cbCompany.Items.Contains(cbCompany.Text)) {
 
 
-                //まだ登録されていなければ登録処理
-                cbCompany.Items.Add(cbCompany.Text);
+                if (!cbCompany.Items.Contains(cbCompany.Text)) {
 
+
+                    //まだ登録されていなければ登録処理
+                    cbCompany.Items.Add(cbCompany.Text);
+
+                }
             }
-        }
+
+          
+            }
+ 
 
         //チェックボックスにセットされている値をリストとして取り出す
         private List<Person.GroupType> GetCheckBoxGroup() {
@@ -107,8 +118,7 @@ namespace AddressBook {
 
         }
         //データグリッドビューをクリックしたときのイベントハンドラ
-        private void dgvPersons_Click(object sender, EventArgs e)
-            {
+        private void dgvPersons_Click(object sender, EventArgs e) {
             if (dgvPersons.CurrentRow == null) return;
             int index = dgvPersons.CurrentRow.Index;
             tbName.Text = listPerson[index].Name;
@@ -124,8 +134,7 @@ namespace AddressBook {
 
 
 
-            foreach (var group in listPerson[index].listGroup) 
-                {
+            foreach (var group in listPerson[index].listGroup) {
                 switch (group) {
                     case Person.GroupType.家族:
                         cbFamily.Checked = true;
@@ -148,7 +157,7 @@ namespace AddressBook {
             }
 
 
-           
+
 
 
 
@@ -178,17 +187,89 @@ namespace AddressBook {
         private void btDelete_Click(object sender, EventArgs e) {
 
             listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
-
-            if (listPerson.Count() == 0)
-                btDelete.Enabled = false;
-                btUpdate.Enabled = false;
-
+            EnabledCheck();
+           
         }
 
-        private void Form1_Lord(object sender,EventArgs e) { 
+        
+
+        private void Form1_Lord(object sender, EventArgs e) {
             //btDelete.Enabled = false;//排除ボタンをマスク
+            EnabledCheck();
 
         }
 
+        private void EnabledCheck() {
+            btUpdate.Enabled = btDelete.Enabled = listPerson.Count() > 0 ? true : false;
+        }
+
+        //保存ボタンのイベントハンドラ
+        private void btSave_Click(object sender, EventArgs e) {
+
+            if (sfdSaveDialog.ShowDialog() == DialogResult.OK) {
+
+                try {
+                    //バイナリ形式でシリアル化
+                    var bf = new BinaryFormatter();
+
+                    using (FileStream fs = File.Open(sfdSaveDialog.FileName, FileMode.Create)) {
+                        bf.Serialize(fs, listPerson);
+
+                    }
+
+
+
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+
+
+                }
+
+
+
+            }
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e) {
+
+        }
+
+        private void btOpen_Click(object sender, EventArgs e) {
+            if (ofdFileOpenDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    //バイナリ形式でシリアル化
+                    var bf = new BinaryFormatter();
+
+                    using (FileStream fs = File.Open(ofdFileOpenDialog.FileName, FileMode.Open, FileAccess.Read)) {
+
+                        //逆シリアル化して読み込む
+                        listPerson = (BindingList<Person>)bf.Deserialize(fs);
+                        dgvPersons.DataSource = null;
+                        dgvPersons.DataSource = listPerson;
+                    }
+
+
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+
+                    {
+                        foreach (var item in listPerson.Select(p =>p.Company)){
+
+
+                            setCbCompany(item);
+                        }
+
+
+
+
+                    }
+                }
+
+            }
+        }
     }
 }
+
+
