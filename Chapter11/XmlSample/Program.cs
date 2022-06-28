@@ -16,7 +16,7 @@ namespace XmlSample {
                 var stream = new WebClient().OpenRead("https://news.yahoo.co.jp/rss/topics/top-picks.xml");
 
                 var xdoc = XDocument.Load(stream);
-                var xNews = xdoc.Root.Descendants("item").Select(x => x.Element("title"));
+                var xNews = xdoc.Root.Descendants("item").Select(x =>(string) x.Element("title"));
 
                 foreach (var data in xNews) {
 
