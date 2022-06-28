@@ -57,6 +57,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test01", "Test202206\TestPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test02", "Test202206\TestProject\Test02\Test02.csproj", "{E461C0A8-8900-485C-B520-E929BA33F712}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter11", "Chapter11", "{03350AA5-C483-4A44-9B7C-15F782FD41FC}"
+	ProjectSection(SolutionItems) = preProject
+		\\172.16.45.1\学生共有\#infosys2022\オブジェクト指向プログラミング\２期目\novelists.xml = \\172.16.45.1\学生共有\#infosys2022\オブジェクト指向プログラミング\２期目\novelists.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlSample", "Chapter11\XmlSample\XmlSample.csproj", "{7C385264-592B-40C8-A513-10890C08CF50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +150,10 @@ Global
 		{E461C0A8-8900-485C-B520-E929BA33F712}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E461C0A8-8900-485C-B520-E929BA33F712}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E461C0A8-8900-485C-B520-E929BA33F712}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C385264-592B-40C8-A513-10890C08CF50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C385264-592B-40C8-A513-10890C08CF50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C385264-592B-40C8-A513-10890C08CF50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C385264-592B-40C8-A513-10890C08CF50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,6 +180,8 @@ Global
 		{3603F173-20C1-428A-AD30-955522BEBDDF} = {D0DEA8A7-A2E9-43AB-9294-EC306ADFA794}
 		{2BFACDC3-F44D-4199-8498-F5C3C4AC0335} = {5824B7FB-CE4C-4A56-96D1-C8F77B089758}
 		{E461C0A8-8900-485C-B520-E929BA33F712} = {5824B7FB-CE4C-4A56-96D1-C8F77B089758}
+		{03350AA5-C483-4A44-9B7C-15F782FD41FC} = {D0DEA8A7-A2E9-43AB-9294-EC306ADFA794}
+		{7C385264-592B-40C8-A513-10890C08CF50} = {03350AA5-C483-4A44-9B7C-15F782FD41FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2B4FA00A-F87B-4DE0-9461-31695E3DC30C}
