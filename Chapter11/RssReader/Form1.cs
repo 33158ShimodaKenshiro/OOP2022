@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace RssReader {
     public partial class Form1 : Form {
-        IEnumerable<string> xtitle;
+        IEnumerable<string> xTitle, xLink;
         public Form1() {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace RssReader {
 
                 var xdoc = XDocument.Load(stream);
                 var xTitle = xdoc.Root.Descendants("item").Select(x => (string)x.Element("title"));
-
+                var xLink = xdoc .Descendants("item").Select(x => (string)x.Element("link"));
                 foreach (var data in xTitle) {
 
 
@@ -39,9 +39,42 @@ namespace RssReader {
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e) {
+
+            btBack.Enabled = wvBrowser.CanGoBack;
+            btFoward.Enabled = wvBrowser.CanGoForward;
+
+        }
+
+        private void wbBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
+
+        }
+
+        private void Forward_Click(object sender, EventArgs e) {
+            wbBrowser.GoForward();
+        }
+
+       
+
+        private void btBack_Click(object sender, EventArgs e) {
+            wbBrowser.GoBack();
+        }
+
+        private void wvBrowser_NavigationCompleted(object sender, Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationCompletedEventArgs e) {
+            btBack.Enabled = wvBrowser.CanGoBack;
+            btFoward.Enabled = wvBrowser.CanGoForward;
+        }
+
         private void lbRssTitle_SelectedIndexChanged(object sender, EventArgs e) {
 
+
             int index = lbRssTitle.SelectedIndex; //選択した箇所のインデックスを取得(0～ )
+            var url = xLink.ElementAt(index);
+            // wbBrowser.Navigate(url);
+            // webView1.Sourse
+            wvBrowser.Source = new Uri(url);
+           
+
 
 
 
