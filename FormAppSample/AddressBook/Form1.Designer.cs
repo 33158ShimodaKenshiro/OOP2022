@@ -123,6 +123,7 @@ namespace AddressBook {
             this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersons.Size = new System.Drawing.Size(626, 338);
             this.dgvPersons.TabIndex = 1;
+            this.dgvPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersons_CellContentClick);
             this.dgvPersons.Click += new System.EventHandler(this.dgvPersons_Click);
             // 
             // tbName
@@ -132,7 +133,7 @@ namespace AddressBook {
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(362, 31);
             this.tbName.TabIndex = 2;
-            
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // tbMailAddress
             // 
@@ -148,8 +149,9 @@ namespace AddressBook {
             this.tbAddress.Location = new System.Drawing.Point(178, 107);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(362, 61);
+            this.tbAddress.Size = new System.Drawing.Size(362, 62);
             this.tbAddress.TabIndex = 2;
+            this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
             // 
             // cbFamily
             // 
@@ -211,6 +213,7 @@ namespace AddressBook {
             this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPicture.TabIndex = 5;
             this.pbPicture.TabStop = false;
+            this.pbPicture.Click += new System.EventHandler(this.pbPicture_Click);
             // 
             // btPictureOpen
             // 
@@ -335,6 +338,7 @@ namespace AddressBook {
             this.rbMobile.TabIndex = 0;
             this.rbMobile.Text = "携帯";
             this.rbMobile.UseVisualStyleBackColor = true;
+            this.rbMobile.CheckedChanged += new System.EventHandler(this.rbMobile_CheckedChanged);
             // 
             // rbHome
             // 
@@ -347,6 +351,7 @@ namespace AddressBook {
             this.rbHome.TabStop = true;
             this.rbHome.Text = "自宅";
             this.rbHome.UseVisualStyleBackColor = true;
+            this.rbHome.CheckedChanged += new System.EventHandler(this.rbHome_CheckedChanged);
             // 
             // tbTelNumber
             // 

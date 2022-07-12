@@ -236,5 +236,29 @@ namespace AddressBook {
             }
             EnabledCheck(); //マスク処理呼び出し
         }
+
+        private void tbName_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void pbPicture_Click(object sender, EventArgs e) {
+
+        }
+
+        private void tbAddress_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void dgvPersons_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+        private void rbHome_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void rbMobile_CheckedChanged(object sender, EventArgs e) {
+
+        }
     }
 }
