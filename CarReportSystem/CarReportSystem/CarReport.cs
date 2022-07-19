@@ -21,6 +21,7 @@ namespace CarReportSystem {
         [System.ComponentModel.DisplayName("画像")]
         public Image Picture { get; set; } //画像
 
+        
         //メーカー
         public enum MakerGroup {
             トヨタ,

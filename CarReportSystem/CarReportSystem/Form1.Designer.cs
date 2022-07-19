@@ -24,59 +24,65 @@ namespace CarReportSystem {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
-            this.cbName = new System.Windows.Forms.ComboBox();
-            this.cbCar = new System.Windows.Forms.ComboBox();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
+            this.cbRecorder = new System.Windows.Forms.ComboBox();
+            this.cbCarName = new System.Windows.Forms.ComboBox();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.rb = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.rbToyota = new System.Windows.Forms.RadioButton();
+            this.rbNissan = new System.Windows.Forms.RadioButton();
+            this.rbHonda = new System.Windows.Forms.RadioButton();
+            this.rbSubaru = new System.Windows.Forms.RadioButton();
+            this.rbForeign = new System.Windows.Forms.RadioButton();
+            this.rbEtc = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.dgvArticle = new System.Windows.Forms.DataGridView();
+            this.dgv = new System.Windows.Forms.DataGridView();
             this.btOpen = new System.Windows.Forms.Button();
             this.btEnd = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.btOpen2 = new System.Windows.Forms.Button();
             this.btDelete = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
             this.btRevision = new System.Windows.Forms.Button();
             this.btDelete2 = new System.Windows.Forms.Button();
             this.pbPicture = new System.Windows.Forms.PictureBox();
             this.btSave = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvArticle)).BeginInit();
+            this.tbReport = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ofdFileOpenDialog = new System.Windows.Forms.OpenFileDialog();
+            this.sfdSaveDialog = new System.Windows.Forms.SaveFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cbName
+            // cbRecorder
             // 
-            this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(57, 65);
-            this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(121, 20);
-            this.cbName.TabIndex = 0;
+            this.cbRecorder.FormattingEnabled = true;
+            this.cbRecorder.Location = new System.Drawing.Point(57, 65);
+            this.cbRecorder.Name = "cbRecorder";
+            this.cbRecorder.Size = new System.Drawing.Size(121, 20);
+            this.cbRecorder.TabIndex = 0;
             // 
-            // cbCar
+            // cbCarName
             // 
-            this.cbCar.FormattingEnabled = true;
-            this.cbCar.Location = new System.Drawing.Point(67, 122);
-            this.cbCar.Name = "cbCar";
-            this.cbCar.Size = new System.Drawing.Size(121, 20);
-            this.cbCar.TabIndex = 1;
+            this.cbCarName.FormattingEnabled = true;
+            this.cbCarName.Location = new System.Drawing.Point(67, 122);
+            this.cbCarName.Name = "cbCarName";
+            this.cbCarName.Size = new System.Drawing.Size(121, 20);
+            this.cbCarName.TabIndex = 1;
             // 
-            // dtp
+            // dtpDate
             // 
-            this.dtp.Location = new System.Drawing.Point(57, 31);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(200, 19);
-            this.dtp.TabIndex = 3;
+            this.dtpDate.Location = new System.Drawing.Point(57, 31);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(200, 19);
+            this.dtpDate.TabIndex = 3;
             // 
             // label1
             // 
@@ -104,7 +110,6 @@ namespace CarReportSystem {
             this.label3.Size = new System.Drawing.Size(44, 12);
             this.label3.TabIndex = 5;
             this.label3.Text = "メーカー:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -123,76 +128,68 @@ namespace CarReportSystem {
             this.label5.Size = new System.Drawing.Size(31, 12);
             this.label5.TabIndex = 5;
             this.label5.Text = "車名:";
-            this.label5.Click += new System.EventHandler(this.label3_Click);
             // 
-            // rb
+            // rbToyota
             // 
-            this.rb.AutoSize = true;
-            this.rb.Location = new System.Drawing.Point(80, 100);
-            this.rb.Name = "rb";
-            this.rb.Size = new System.Drawing.Size(47, 16);
-            this.rb.TabIndex = 6;
-            this.rb.TabStop = true;
-            this.rb.Text = "トヨタ";
-            this.rb.UseVisualStyleBackColor = true;
+            this.rbToyota.AutoSize = true;
+            this.rbToyota.Checked = true;
+            this.rbToyota.Location = new System.Drawing.Point(80, 100);
+            this.rbToyota.Name = "rbToyota";
+            this.rbToyota.Size = new System.Drawing.Size(47, 16);
+            this.rbToyota.TabIndex = 6;
+            this.rbToyota.TabStop = true;
+            this.rbToyota.Text = "トヨタ";
+            this.rbToyota.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbNissan
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(141, 100);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 16);
-            this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "日産";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbNissan.AutoSize = true;
+            this.rbNissan.Location = new System.Drawing.Point(141, 100);
+            this.rbNissan.Name = "rbNissan";
+            this.rbNissan.Size = new System.Drawing.Size(47, 16);
+            this.rbNissan.TabIndex = 6;
+            this.rbNissan.Text = "日産";
+            this.rbNissan.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbHonda
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(206, 100);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(51, 16);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "ホンダ";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbHonda.AutoSize = true;
+            this.rbHonda.Location = new System.Drawing.Point(206, 100);
+            this.rbHonda.Name = "rbHonda";
+            this.rbHonda.Size = new System.Drawing.Size(51, 16);
+            this.rbHonda.TabIndex = 6;
+            this.rbHonda.Text = "ホンダ";
+            this.rbHonda.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbSubaru
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(274, 100);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(52, 16);
-            this.radioButton4.TabIndex = 6;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "スバル";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.rbSubaru.AutoSize = true;
+            this.rbSubaru.Location = new System.Drawing.Point(274, 100);
+            this.rbSubaru.Name = "rbSubaru";
+            this.rbSubaru.Size = new System.Drawing.Size(52, 16);
+            this.rbSubaru.TabIndex = 6;
+            this.rbSubaru.Text = "スバル";
+            this.rbSubaru.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rbForeign
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(332, 100);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(47, 16);
-            this.radioButton5.TabIndex = 6;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "外車";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.rbForeign.AutoSize = true;
+            this.rbForeign.Location = new System.Drawing.Point(332, 100);
+            this.rbForeign.Name = "rbForeign";
+            this.rbForeign.Size = new System.Drawing.Size(47, 16);
+            this.rbForeign.TabIndex = 6;
+            this.rbForeign.Text = "外車";
+            this.rbForeign.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // rbEtc
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(396, 100);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(54, 16);
-            this.radioButton6.TabIndex = 6;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "その他";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            this.radioButton6.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.rbEtc.AutoSize = true;
+            this.rbEtc.Location = new System.Drawing.Point(396, 100);
+            this.rbEtc.Name = "rbEtc";
+            this.rbEtc.Size = new System.Drawing.Size(54, 16);
+            this.rbEtc.TabIndex = 6;
+            this.rbEtc.Text = "その他";
+            this.rbEtc.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -203,14 +200,14 @@ namespace CarReportSystem {
             this.label6.TabIndex = 5;
             this.label6.Text = "記事一覧:";
             // 
-            // dgvArticle
+            // dgv
             // 
-            this.dgvArticle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticle.Location = new System.Drawing.Point(86, 288);
-            this.dgvArticle.Name = "dgvArticle";
-            this.dgvArticle.RowTemplate.Height = 21;
-            this.dgvArticle.Size = new System.Drawing.Size(710, 150);
-            this.dgvArticle.TabIndex = 7;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(90, 295);
+            this.dgv.Name = "dgv";
+            this.dgv.RowTemplate.Height = 21;
+            this.dgv.Size = new System.Drawing.Size(710, 150);
+            this.dgv.TabIndex = 7;
             // 
             // btOpen
             // 
@@ -230,6 +227,7 @@ namespace CarReportSystem {
             this.btEnd.TabIndex = 8;
             this.btEnd.Text = "終了";
             this.btEnd.UseVisualStyleBackColor = true;
+            this.btEnd.Click += new System.EventHandler(this.btExit_Click);
             // 
             // label7
             // 
@@ -240,15 +238,6 @@ namespace CarReportSystem {
             this.label7.TabIndex = 5;
             this.label7.Text = "画像:";
             // 
-            // btOpen2
-            // 
-            this.btOpen2.Location = new System.Drawing.Point(599, 36);
-            this.btOpen2.Name = "btOpen2";
-            this.btOpen2.Size = new System.Drawing.Size(75, 23);
-            this.btOpen2.TabIndex = 8;
-            this.btOpen2.Text = "開く";
-            this.btOpen2.UseVisualStyleBackColor = true;
-            // 
             // btDelete
             // 
             this.btDelete.Location = new System.Drawing.Point(703, 36);
@@ -257,16 +246,17 @@ namespace CarReportSystem {
             this.btDelete.TabIndex = 8;
             this.btDelete.Text = "削除";
             this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btPictureClear_Click_1);
             // 
             // btAdd
             // 
-            this.btAdd.Location = new System.Drawing.Point(489, 228);
+            this.btAdd.Location = new System.Drawing.Point(496, 228);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(75, 23);
             this.btAdd.TabIndex = 8;
             this.btAdd.Text = "追加";
             this.btAdd.UseVisualStyleBackColor = true;
-            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            this.btAdd.Click += new System.EventHandler(this.btAddPerson_Click);
             // 
             // btRevision
             // 
@@ -276,6 +266,7 @@ namespace CarReportSystem {
             this.btRevision.TabIndex = 8;
             this.btRevision.Text = "修正";
             this.btRevision.UseVisualStyleBackColor = true;
+            this.btRevision.Click += new System.EventHandler(this.btUpdate_Click);
             // 
             // btDelete2
             // 
@@ -285,15 +276,16 @@ namespace CarReportSystem {
             this.btDelete2.TabIndex = 8;
             this.btDelete2.Text = "削除";
             this.btDelete2.UseVisualStyleBackColor = true;
+            this.btDelete2.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // pbPicture
             // 
+            this.pbPicture.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.pbPicture.Location = new System.Drawing.Point(514, 72);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(264, 144);
             this.pbPicture.TabIndex = 9;
             this.pbPicture.TabStop = false;
-            this.pbPicture.Click += new System.EventHandler(this.pbPicture_Click);
             // 
             // btSave
             // 
@@ -303,36 +295,76 @@ namespace CarReportSystem {
             this.btSave.TabIndex = 8;
             this.btSave.Text = "保存";
             this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
-            // textBox1
+            // tbReport
             // 
-            this.textBox1.Location = new System.Drawing.Point(57, 150);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 19);
-            this.textBox1.TabIndex = 10;
+            this.tbReport.Location = new System.Drawing.Point(57, 150);
+            this.tbReport.Multiline = true;
+            this.tbReport.Name = "tbReport";
+            this.tbReport.Size = new System.Drawing.Size(362, 109);
+            this.tbReport.TabIndex = 10;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ファイルFToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // ファイルFToolStripMenuItem
+            // 
+            this.ファイルFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aaToolStripMenuItem});
+            this.ファイルFToolStripMenuItem.Name = "ファイルFToolStripMenuItem";
+            this.ファイルFToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.ファイルFToolStripMenuItem.Text = "ファイル(&F)";
+            // 
+            // aaToolStripMenuItem
+            // 
+            this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
+            this.aaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.aaToolStripMenuItem.Text = "色の設定...";
+            // 
+            // ofdFileOpenDialog
+            // 
+            this.ofdFileOpenDialog.FileName = "openFileDialog1";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(613, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "開く";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btOpen2);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbReport);
             this.Controls.Add(this.pbPicture);
             this.Controls.Add(this.btSave);
             this.Controls.Add(this.btEnd);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btDelete);
             this.Controls.Add(this.btDelete2);
             this.Controls.Add(this.btRevision);
             this.Controls.Add(this.btAdd);
-            this.Controls.Add(this.btOpen2);
             this.Controls.Add(this.btOpen);
-            this.Controls.Add(this.dgvArticle);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton6);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.rb);
+            this.Controls.Add(this.dgv);
+            this.Controls.Add(this.rbHonda);
+            this.Controls.Add(this.rbEtc);
+            this.Controls.Add(this.rbForeign);
+            this.Controls.Add(this.rbSubaru);
+            this.Controls.Add(this.rbNissan);
+            this.Controls.Add(this.rbToyota);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -340,14 +372,17 @@ namespace CarReportSystem {
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dtp);
-            this.Controls.Add(this.cbCar);
-            this.Controls.Add(this.cbName);
+            this.Controls.Add(this.dtpDate);
+            this.Controls.Add(this.cbCarName);
+            this.Controls.Add(this.cbRecorder);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvArticle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,33 +390,38 @@ namespace CarReportSystem {
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbName;
-        private System.Windows.Forms.ComboBox cbCar;
-        private System.Windows.Forms.DateTimePicker dtp;
+        private System.Windows.Forms.ComboBox cbRecorder;
+        private System.Windows.Forms.ComboBox cbCarName;
+        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton rb;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton rbToyota;
+        private System.Windows.Forms.RadioButton rbNissan;
+        private System.Windows.Forms.RadioButton rbHonda;
+        private System.Windows.Forms.RadioButton rbSubaru;
+        private System.Windows.Forms.RadioButton rbForeign;
+        private System.Windows.Forms.RadioButton rbEtc;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dgvArticle;
+        private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Button btOpen;
         private System.Windows.Forms.Button btEnd;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btOpen2;
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.Button btAdd;
         private System.Windows.Forms.Button btRevision;
         private System.Windows.Forms.Button btDelete2;
         private System.Windows.Forms.PictureBox pbPicture;
         private System.Windows.Forms.Button btSave;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbReport;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ファイルFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aaToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog ofdFileOpenDialog;
+        private System.Windows.Forms.SaveFileDialog sfdSaveDialog;
+        private System.Windows.Forms.Button button1;
     }
 }
 

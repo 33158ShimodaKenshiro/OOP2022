@@ -52,7 +52,7 @@ namespace AddressBook {
 
             setCbCompany(cbCompany.Text);
         }
-        private Person.KindNumberType GetRadioButtonKindNumber() {
+      
 
             if (rbHome.Checked)//自宅にチェックがついている           
               {
@@ -258,6 +258,14 @@ namespace AddressBook {
         }
 
         private void rbMobile_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void cbCompany_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void ofdFileOpenDialog_FileOk(object sender, CancelEventArgs e) {
 
         }
     }

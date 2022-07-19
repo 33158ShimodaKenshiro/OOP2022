@@ -238,6 +238,7 @@ namespace AddressBook {
             // ofdFileOpenDialog
             // 
             this.ofdFileOpenDialog.FileName = "openFileDialog1";
+            this.ofdFileOpenDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdFileOpenDialog_FileOk);
             // 
             // btUpdate
             // 
