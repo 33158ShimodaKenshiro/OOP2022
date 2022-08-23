@@ -123,8 +123,7 @@ namespace AddressBook {
             this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersons.Size = new System.Drawing.Size(626, 338);
             this.dgvPersons.TabIndex = 1;
-            this.dgvPersons.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersons_CellContentClick);
-            this.dgvPersons.Click += new System.EventHandler(this.dgvPersons_Click);
+           
             // 
             // tbName
             // 

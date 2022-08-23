@@ -16,6 +16,9 @@ using System;
 namespace CarReportSystem {
     public partial class Form1 : Form {
 
+        //設定情報保存用オブジェクト
+        Settings settings = new Settings();
+
         //住所データ管理用リスト
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
 
@@ -238,9 +241,10 @@ namespace CarReportSystem {
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
             //設定ファイルをシリアル化
 
-            using (var writer = XmlWriter.Create()) {
-                var serializer = new XmlSerializer(());
-                serializer.Serialize(writer);
+            using (var writer = XmlWriter.Create("settings.xml"))
+            {
+                var serializer = new XmlSerializer(settings.GetType()); 
+                serializer.Serialize(writer, settings);
             }
         }
 
@@ -250,16 +254,31 @@ namespace CarReportSystem {
 
         private void Form1_Load(object sender, EventArgs e) {
             //設定ファイルを逆シリアル化 307
-            using (var reader = XmlReader.Create("setting.xml"))
-
+            using (var reader = XmlReader.Create("settings.xml")) {
                 var serializer = new XmlSerializer(typeof(Settings));
-            Settings = XmlSerializer.Deserialize(Reader) as Settings;
-                EnabledCheck();
+                settings = serializer.Deserialize(reader) as Settings;
+                BackColor = Color.FromArgb(settings.MainFormColor);
+            }
+            EnabledCheck();
         }
 
         private void dgv_CellContentClick_1(object sender, DataGridViewCellEventArgs e) {
 
         }
+
+        private void tbReport_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void aaToolStripMenuItem_Click(object sender, EventArgs e) {
+            //色設定ダイアログの表示
+            if (cdColorSelect.ShowDialog() == DialogResult.OK) {
+                BackColor = cdColorSelect.Color;
+                settings.MainFormColor = cdColorSelect.Color.ToArgb();//;cdColorSelect.Color;   //設定オブジェクトへセット
+            }
+        }
+
     }
-}
+    }
+
 

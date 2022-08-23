@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 namespace CarReportSystem {
     public class Settings {
         
-        public Color MainFormColor { get; set; }
+        public int MainFormColor { get; set; }
     }
 }

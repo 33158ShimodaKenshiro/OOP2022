@@ -56,6 +56,7 @@ namespace CarReportSystem {
             this.ofdFileOpenDialog = new System.Windows.Forms.OpenFileDialog();
             this.sfdSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.cdColorSelect = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -304,6 +305,7 @@ namespace CarReportSystem {
             this.tbReport.Name = "tbReport";
             this.tbReport.Size = new System.Drawing.Size(362, 109);
             this.tbReport.TabIndex = 10;
+            this.tbReport.TextChanged += new System.EventHandler(this.tbReport_TextChanged);
             // 
             // menuStrip1
             // 
@@ -326,8 +328,9 @@ namespace CarReportSystem {
             // aaToolStripMenuItem
             // 
             this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
-            this.aaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.aaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aaToolStripMenuItem.Text = "色の設定...";
+            this.aaToolStripMenuItem.Click += new System.EventHandler(this.aaToolStripMenuItem_Click);
             // 
             // ofdFileOpenDialog
             // 
@@ -422,6 +425,7 @@ namespace CarReportSystem {
         private System.Windows.Forms.OpenFileDialog ofdFileOpenDialog;
         private System.Windows.Forms.SaveFileDialog sfdSaveDialog;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColorDialog cdColorSelect;
     }
 }
 
