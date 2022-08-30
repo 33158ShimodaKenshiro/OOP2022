@@ -249,6 +249,24 @@ namespace CarReportSystem {
         }
 
         private void toolStripComboBox1_Click(object sender, EventArgs e) {
+            try 
+                {
+                using (var reader = XmlReader.Create("settings.xml")) {
+                    var serializer = new XmlSerializer(typeof(Settings));
+                    settings = serializer.Deserialize(reader) as Settings;
+                    BackColor = Color.FromArgb(settings.MainFormColor);
+                }
+
+            }
+            catch(Exception) 
+            {
+
+            }
+            finally {
+                EnabledCheck();//マスク処理呼び出し
+
+            }
+           
 
         }
 
