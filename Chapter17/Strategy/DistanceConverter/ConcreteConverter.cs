@@ -1,4 +1,5 @@
 ﻿using DistanceConverter;
+using DistanceConverter.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace DistanceConverter {
 
         public class FeetConverter : ConverterBase {
             protected override double Ratio { get { return 0.3048; } }
-            public override string UnitName { get { return "フィード"; } }
+            public override string UnitName { get { return "フィート"; } }
 
         public override bool IsMyUnit(string name) {
             return name.ToLower() == "feet" || name == UnitName;
@@ -38,19 +39,21 @@ namespace DistanceConverter {
 
 
 public class YardConverter : ConverterBase {
-            protected override double Ratio { get { return 0.9144; } }
-            public override string UnitName { get { return "ヤード"; } }
+    protected override double Ratio { get { return 0.9144; } }
+    public override string UnitName { get { return "ヤード"; } }
     public override bool IsMyUnit(string name) {
         return name.ToLower() == "yard" || name == UnitName;
     }
+}
 
-    public class MileConverter : ConverterBase {
-        protected override double Ratio { get { return 1.609344; } }
-        public override string UnitName { get { return "マイル"; } }
+public class MileConverter : ConverterBase {
+    protected override double Ratio { get { return 1.609344; } }
+    public override string UnitName { get { return "マイル"; } }
 
-        public override bool IsMyUnit(string name) {
-            return name.ToLower() == "mile" || name == UnitName;
-        }
+    public override bool IsMyUnit(string name) {
+        return name.ToLower() == "mile" || name == UnitName;
+    }
+}
 
         public class KiloMeterConverter : ConverterBase {
             protected override double Ratio { get { return 1000; } }
@@ -60,8 +63,8 @@ public class YardConverter : ConverterBase {
                 return name.ToLower() == "kilometer" || name == UnitName;
             }
         }
-    }
-}
+    
+
 
 
 
