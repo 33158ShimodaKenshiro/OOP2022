@@ -62,7 +62,14 @@ namespace AddressBook {
                 if (rbMobile.Checked) {
 
                     selectedKindNumber = Person.KindNumberType.自宅;
-                }
+private void btPictureClear_Click(object sender, EventArgs e) {
+
+        }
+
+        private void pbPicture_Click(object sender, EventArgs e) {
+
+        }
+    }
                 if (rbMobile.Checked) {
 
                     selectedKindNumber = Person.KindNumberType.携帯;

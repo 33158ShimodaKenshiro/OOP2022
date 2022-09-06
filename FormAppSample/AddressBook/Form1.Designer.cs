@@ -123,7 +123,6 @@ namespace AddressBook {
             this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersons.Size = new System.Drawing.Size(626, 338);
             this.dgvPersons.TabIndex = 1;
-           
             // 
             // tbName
             // 
@@ -132,7 +131,6 @@ namespace AddressBook {
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(362, 31);
             this.tbName.TabIndex = 2;
-            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // tbMailAddress
             // 
@@ -150,7 +148,6 @@ namespace AddressBook {
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(362, 62);
             this.tbAddress.TabIndex = 2;
-            this.tbAddress.TextChanged += new System.EventHandler(this.tbAddress_TextChanged);
             // 
             // cbFamily
             // 
@@ -237,7 +234,6 @@ namespace AddressBook {
             // ofdFileOpenDialog
             // 
             this.ofdFileOpenDialog.FileName = "openFileDialog1";
-            this.ofdFileOpenDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdFileOpenDialog_FileOk);
             // 
             // btUpdate
             // 
@@ -248,7 +244,6 @@ namespace AddressBook {
             this.btUpdate.TabIndex = 4;
             this.btUpdate.Text = "更新";
             this.btUpdate.UseVisualStyleBackColor = true;
-            this.btUpdate.Click += new System.EventHandler(this.btUpdate_Click);
             // 
             // btDelete
             // 
@@ -259,7 +254,6 @@ namespace AddressBook {
             this.btDelete.TabIndex = 4;
             this.btDelete.Text = "削除";
             this.btDelete.UseVisualStyleBackColor = true;
-            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // cbCompany
             // 
@@ -279,7 +273,6 @@ namespace AddressBook {
             this.btOpen.TabIndex = 4;
             this.btOpen.Text = "開く...";
             this.btOpen.UseVisualStyleBackColor = true;
-            this.btOpen.Click += new System.EventHandler(this.btOpen_Click);
             // 
             // btSave
             // 
@@ -290,7 +283,6 @@ namespace AddressBook {
             this.btSave.TabIndex = 4;
             this.btSave.Text = "保存...";
             this.btSave.UseVisualStyleBackColor = true;
-            this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
             // label6
             // 
@@ -338,7 +330,6 @@ namespace AddressBook {
             this.rbMobile.TabIndex = 0;
             this.rbMobile.Text = "携帯";
             this.rbMobile.UseVisualStyleBackColor = true;
-            this.rbMobile.CheckedChanged += new System.EventHandler(this.rbMobile_CheckedChanged);
             // 
             // rbHome
             // 
@@ -351,7 +342,6 @@ namespace AddressBook {
             this.rbHome.TabStop = true;
             this.rbHome.Text = "自宅";
             this.rbHome.UseVisualStyleBackColor = true;
-            this.rbHome.CheckedChanged += new System.EventHandler(this.rbHome_CheckedChanged);
             // 
             // tbTelNumber
             // 
@@ -395,7 +385,6 @@ namespace AddressBook {
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "住所録アプリ";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.groupBox1.ResumeLayout(false);
