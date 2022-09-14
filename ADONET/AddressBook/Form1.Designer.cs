@@ -26,7 +26,15 @@ namespace AddressBook {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             this.addressTableDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.addressTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.infosys202213DataSet = new AddressBook.infosys202213DataSet();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbAddress = new System.Windows.Forms.TextBox();
@@ -46,27 +54,19 @@ namespace AddressBook {
             this.btSearchName = new System.Windows.Forms.Button();
             this.tbSearchName = new System.Windows.Forms.TextBox();
             this.btClear = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.infosys202213DataSet = new AddressBook.infosys202213DataSet();
             this.addressTableTableAdapter = new AddressBook.infosys202213DataSetTableAdapters.AddressTableTableAdapter();
             this.tableAdapterManager = new AddressBook.infosys202213DataSetTableAdapters.TableAdapterManager();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ファイルFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.データベース接続ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btSerachClear = new System.Windows.Forms.Button();
             this.ヘルプHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.バージョン情報ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btSerachClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.addressTableDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressTableBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202213DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,12 +96,64 @@ namespace AddressBook {
             this.addressTableDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.addressTableDataGridView_DataError);
             this.addressTableDataGridView.Click += new System.EventHandler(this.addressTableDataGridView_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Tell";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Tell";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Mail";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Mail";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Memo";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Memo";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
             // Image
             // 
             this.Image.DataPropertyName = "Image";
             this.Image.HeaderText = "Image";
             this.Image.Name = "Image";
             this.Image.ReadOnly = true;
+            // 
+            // addressTableBindingSource
+            // 
+            this.addressTableBindingSource.DataMember = "AddressTable";
+            this.addressTableBindingSource.DataSource = this.infosys202213DataSet;
+            // 
+            // infosys202213DataSet
+            // 
+            this.infosys202213DataSet.DataSetName = "infosys202213DataSet";
+            this.infosys202213DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tbName
             // 
@@ -183,6 +235,7 @@ namespace AddressBook {
             this.tbMemo.Name = "tbMemo";
             this.tbMemo.Size = new System.Drawing.Size(376, 58);
             this.tbMemo.TabIndex = 2;
+            this.tbMemo.TextChanged += new System.EventHandler(this.tbMemo_TextChanged);
             // 
             // label5
             // 
@@ -275,58 +328,6 @@ namespace AddressBook {
             this.btClear.UseVisualStyleBackColor = true;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Tell";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Tell";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Mail";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Mail";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Memo";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Memo";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // addressTableBindingSource
-            // 
-            this.addressTableBindingSource.DataMember = "AddressTable";
-            this.addressTableBindingSource.DataSource = this.infosys202213DataSet;
-            // 
-            // infosys202213DataSet
-            // 
-            this.infosys202213DataSet.DataSetName = "infosys202213DataSet";
-            this.infosys202213DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // addressTableTableAdapter
             // 
             this.addressTableTableAdapter.ClearBeforeFill = true;
@@ -361,7 +362,7 @@ namespace AddressBook {
             // データベース接続ToolStripMenuItem
             // 
             this.データベース接続ToolStripMenuItem.Name = "データベース接続ToolStripMenuItem";
-            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.データベース接続ToolStripMenuItem.Text = "データベース接続";
             this.データベース接続ToolStripMenuItem.Click += new System.EventHandler(this.データベース接続ToolStripMenuItem_Click);
             // 
@@ -369,19 +370,9 @@ namespace AddressBook {
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
             this.終了ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D4)));
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.終了ToolStripMenuItem.Text = "終了(&X)";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
-            // 
-            // btSerachClear
-            // 
-            this.btSerachClear.Location = new System.Drawing.Point(399, 244);
-            this.btSerachClear.Name = "btSerachClear";
-            this.btSerachClear.Size = new System.Drawing.Size(115, 50);
-            this.btSerachClear.TabIndex = 4;
-            this.btSerachClear.Text = "クリア";
-            this.btSerachClear.UseVisualStyleBackColor = true;
-            this.btSerachClear.Click += new System.EventHandler(this.btClear_Click);
             // 
             // ヘルプHToolStripMenuItem
             // 
@@ -394,9 +385,19 @@ namespace AddressBook {
             // バージョン情報ToolStripMenuItem
             // 
             this.バージョン情報ToolStripMenuItem.Name = "バージョン情報ToolStripMenuItem";
-            this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.バージョン情報ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.バージョン情報ToolStripMenuItem.Text = "バージョン情報";
             this.バージョン情報ToolStripMenuItem.Click += new System.EventHandler(this.バージョン情報ToolStripMenuItem_Click);
+            // 
+            // btSerachClear
+            // 
+            this.btSerachClear.Location = new System.Drawing.Point(399, 244);
+            this.btSerachClear.Name = "btSerachClear";
+            this.btSerachClear.Size = new System.Drawing.Size(115, 50);
+            this.btSerachClear.TabIndex = 4;
+            this.btSerachClear.Text = "クリア";
+            this.btSerachClear.UseVisualStyleBackColor = true;
+            this.btSerachClear.Click += new System.EventHandler(this.btClear_Click);
             // 
             // Form1
             // 
@@ -429,9 +430,9 @@ namespace AddressBook {
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addressTableDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressTableBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202213DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

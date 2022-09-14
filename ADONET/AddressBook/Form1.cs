@@ -138,5 +138,9 @@ namespace AddressBook {
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
             new Version().ShowDialog();
         }
+
+        private void tbMemo_TextChanged(object sender, EventArgs e) {
+
+        }
     }
 }

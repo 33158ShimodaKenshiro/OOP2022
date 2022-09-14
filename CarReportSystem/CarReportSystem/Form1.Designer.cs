@@ -209,6 +209,7 @@ namespace CarReportSystem {
             this.dgv.RowTemplate.Height = 21;
             this.dgv.Size = new System.Drawing.Size(710, 150);
             this.dgv.TabIndex = 7;
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick_2);
             // 
             // btOpen
             // 
@@ -300,7 +301,7 @@ namespace CarReportSystem {
             // 
             // tbReport
             // 
-            this.tbReport.Location = new System.Drawing.Point(57, 150);
+            this.tbReport.Location = new System.Drawing.Point(67, 142);
             this.tbReport.Multiline = true;
             this.tbReport.Name = "tbReport";
             this.tbReport.Size = new System.Drawing.Size(362, 109);
@@ -328,7 +329,7 @@ namespace CarReportSystem {
             // aaToolStripMenuItem
             // 
             this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
-            this.aaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.aaToolStripMenuItem.Text = "色の設定...";
             this.aaToolStripMenuItem.Click += new System.EventHandler(this.aaToolStripMenuItem_Click);
             // 
