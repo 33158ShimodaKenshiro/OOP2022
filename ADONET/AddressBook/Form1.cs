@@ -142,5 +142,13 @@ namespace AddressBook {
         private void tbMemo_TextChanged(object sender, EventArgs e) {
 
         }
+
+        private void addressTableDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+        private void addressTableBindingSource_CurrentChanged(object sender, EventArgs e) {
+
+        }
     }
 }

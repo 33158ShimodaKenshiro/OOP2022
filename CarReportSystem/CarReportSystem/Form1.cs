@@ -299,6 +299,38 @@ namespace CarReportSystem {
         private void dgv_CellContentClick_2(object sender, DataGridViewCellEventArgs e) {
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+        private void データベース接続ToolStripMenuItem_Click(object sender, EventArgs e) {
+            // TODO: このコード行はデータを 'infosys202213DataSet.AddressTable' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+            this.carReportDBTableAdapter1.Fill(this.infosys202213DataSet1.CarReportDB);
+        }
+
+        private void bindingNavigator1_RefreshItems(object sender, EventArgs e) {
+
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e) {
+
+        }
+
+        private void carReportDBBindingNavigatorSaveItem_Click(object sender, EventArgs e) {
+            this.Validate();
+            this.carReportDBBindingSource.EndEdit();
+            this.tableAdapterManager1.UpdateAll(this.infosys202213DataSet1);
+
+        }
+
+        private void carReportDBDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e) {
+
+        }
     }
     }
 
