@@ -90,10 +90,10 @@ namespace AddressBook {
 
 
         //エラー回避
+
         private void addressTableDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e) {
 
         }
-
         private void btSearchName_Click(object sender, EventArgs e) {
 
         }
@@ -136,7 +136,7 @@ namespace AddressBook {
         }
 
         private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
-            new Version().ShowDialog();
+           ;
         }
 
         private void tbMemo_TextChanged(object sender, EventArgs e) {
@@ -148,6 +148,10 @@ namespace AddressBook {
         }
 
         private void addressTableBindingSource_CurrentChanged(object sender, EventArgs e) {
+
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e) {
 
         }
     }

@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CarReportSystem {
+
+    [Serializable]
     public class Settings {
 
         private static Settings settings; 

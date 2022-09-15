@@ -94,7 +94,6 @@ namespace AddressBook {
             this.addressTableDataGridView.Size = new System.Drawing.Size(788, 183);
             this.addressTableDataGridView.TabIndex = 1;
             this.addressTableDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.addressTableDataGridView_CellContentClick);
-            this.addressTableDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.addressTableDataGridView_DataError);
             this.addressTableDataGridView.Click += new System.EventHandler(this.addressTableDataGridView_Click);
             // 
             // dataGridViewTextBoxColumn1
@@ -164,6 +163,7 @@ namespace AddressBook {
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(376, 26);
             this.tbName.TabIndex = 2;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // label1
             // 
