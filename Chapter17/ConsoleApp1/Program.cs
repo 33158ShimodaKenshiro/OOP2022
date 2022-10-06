@@ -42,28 +42,30 @@ namespace Chapter15 {
             }
 
             Console.WriteLine();
-           
+
             var selected = Library.Books
-                .OrderBy(b => b.CategoryId)
-                .ThenBy(b => b.PublishedYear)
+                .Where(b => years.Contains(b.PublishedYear))
                 .Join(Library.Categories,
-                                    book => book.CategoryId,
-                                    category => category.Id,
-                                    (book, category) => new {
-                                        Title = book.Title,
-                                        Category = category.Name,
-                                        PublishedYear = book.PublishedYear
-                                    }
-                            );
+                 book => book.CategoryId,
+                     category => category.Id,
+                     (book, category) => new {
+                         Title = book.Title,
+                         Category = category.Name,
+                         PublishedYear = book.PublishedYear,
+                            price = book.Price,
+                     }
+                            ).ToList();
           
                
-                foreach (var book in selected ) {
+                foreach (var book in selected .OrderByDescending(x=>x.PublishedYear).ThenBy(x=>x.Category) ) {
                     
                     
-                Console.WriteLine($"{book.PublishedYear},{book.Title},{book.Category}");
+                Console.WriteLine($"{book.PublishedYear},{book.Title},{book.Category}{book.price}");
 
                 
             }
+            Console.WriteLine($"金額の合計{selected.Sum(b => b.price)}円");
+
         }
     }
 }
