@@ -17,7 +17,7 @@ namespace CarReportSystem {
     public partial class Form1 : Form {
 
         //設定情報保存用オブジェクト
-        Settings settings = new Settings();
+        Settings settings = Settings.getInstance();
 
         //住所データ管理用リスト
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
