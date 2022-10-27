@@ -22,14 +22,14 @@ namespace ColarChecker {
         //コンストラクタ
         public MainWindow() {
             InitializeComponent();
-            
+
 
             DataContext = GetColorList(); //←追加
 
         }
 
         private MyColor[] GetColorList() {
-            return typeof(Colors).GetProperties(System.Reflection.BindingFlags.Public |System.Reflection.BindingFlags.Static)
+            return typeof(Colors).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)
                 .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();
         }
 
@@ -55,5 +55,18 @@ namespace ColarChecker {
         private void Grid_Loaded(object sender, RoutedEventArgs e) {
 
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            // setColor();
+
+        }
+
+
+        //private void setColor() {
+            //var r = byte.Parse(rValue.Text);
+           // var g = byte.Parse(gValue.Text);
+           // var b = byte.Parse(bValue.Text);
+            //colorArea.Background = new SolidColorBrush(Color.FromArgb(r.g.b));
+        }
     }
-}
+
+
