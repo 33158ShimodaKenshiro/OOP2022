@@ -25,7 +25,7 @@ namespace CarReportSystem {
 
         public Form1() {
             InitializeComponent();
-            dgv.DataSource = listCarReport;
+            //dgv.DataSource = listCarReport;
         }
 
         private void btOpen2(object sender, EventArgs e) {
@@ -135,14 +135,14 @@ namespace CarReportSystem {
 
         //更新ボタンが押された時の処理
         private void btUpdate_Click(object sender, EventArgs e) {
-            listCarReport[dgv.CurrentRow.Index].Date = dtpDate.Value;
-            listCarReport[dgv.CurrentRow.Index].Auther = cbRecorder.Text;
+           // listCarReport[dgv.CurrentRow.Index].Date = dtpDate.Value;
+           // listCarReport[dgv.CurrentRow.Index].Auther = cbRecorder.Text;
             // listCarReport[dgv.CurrentRow.Index].Maker = GetRadioButton();
-            listCarReport[dgv.CurrentRow.Index].CarName = cbCarName.Text;
-            listCarReport[dgv.CurrentRow.Index].Report = tbReport.Text;
-            listCarReport[dgv.CurrentRow.Index].Picture = pbPicture.Image;
+            //listCarReport[dgv.CurrentRow.Index].CarName = cbCarName.Text;
+           // listCarReport[dgv.CurrentRow.Index].Report = tbReport.Text;
+           // listCarReport[dgv.CurrentRow.Index].Picture = pbPicture.Image;
 
-            dgv.Refresh(); //データグリッドビュー更新
+            //dgv.Refresh(); //データグリッドビュー更新
         }
         //削除ボタンが押された時の処理
         private void btDelete_Click(object sender, EventArgs e) {
@@ -178,7 +178,7 @@ namespace CarReportSystem {
 
         //更新・削除ボタンのマスク処理行う（マスク判定含む）
         private void EnabledCheck() {
-            btRevision.Enabled = btDelete.Enabled = listCarReport.Count() > 0 ? true : false;
+            //btRevision.Enabled = btDelete.Enabled = listCarReport.Count() > 0 ? true : false;
         }
 
         private void btPictureClear_Click_1(object sender, EventArgs e) {
@@ -213,8 +213,8 @@ namespace CarReportSystem {
                     using (FileStream fs = File.Open(ofdFileOpenDialog.FileName, FileMode.Open, FileAccess.Read)) {
                         //逆シリアル化して読み込む
                         listCarReport = (BindingList<CarReport>)bf.Deserialize(fs);
-                        dgv.DataSource = null;
-                        dgv.DataSource = listCarReport;
+                        //dgv.DataSource = null;
+                       // dgv.DataSource = listCarReport;
                     }
                 }
                 catch (Exception ex) {
@@ -307,6 +307,8 @@ namespace CarReportSystem {
                 setCbRecorder(carReportDBDataGridView.Rows[i].Cells[2].Value.ToString());
                 setCbCarName(carReportDBDataGridView.Rows[i].Cells[4].Value.ToString());
             }
+            btUpDate.Enabled = true;
+            btDBAdd.Enabled = true;
         }
 
         private void bindingNavigator1_RefreshItems(object sender, EventArgs e) {

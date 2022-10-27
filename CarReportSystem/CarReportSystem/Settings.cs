@@ -10,7 +10,7 @@ namespace CarReportSystem {
     [Serializable]
     public class Settings {
 
-        private static Settings settings; 
+        private static Settings settings;
 
         private Settings() { }
 
@@ -19,7 +19,9 @@ namespace CarReportSystem {
                 settings = new Settings();
 
             return settings;
+
         }
         public int MainFormColor { get; set; }
+    
     }
 }
