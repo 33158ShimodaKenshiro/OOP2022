@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,61 +13,49 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Reflection;
 
-namespace ColarChecker {
+namespace CollarChecker {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
-        //コンストラクタ
         public MainWindow() {
             InitializeComponent();
 
-
-            DataContext = GetColorList(); //←追加
+            DataContext = GetColorList();
 
         }
 
+        /// <summary>
+        /// すべての色を取得するメソッド
+        /// </summary>
+        /// <returns></returns>
         private MyColor[] GetColorList() {
-            return typeof(Colors).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)
+            return typeof(Colors).GetProperties(BindingFlags.Public | BindingFlags.Static)
                 .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();
         }
 
-
-
-        public class MyColor {
-            public Color Color { get; set; }
-            public string Name { get; set; }
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            setColor();
         }
 
-        private void rSampleSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
-            colorRGB.Background = new SolidColorBrush(Color.FromRgb((byte)SampleSlider.Value, (byte)SampleSlider2.Value, (byte)SampleSlider3.Value));
-        }
-
-        private void Border_Loaded(object sender, RoutedEventArgs e) {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
-        }
-
-        private void Grid_Loaded(object sender, RoutedEventArgs e) {
-
-        }
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            // setColor();
-
+            setColor();
         }
 
-
-        //private void setColor() {
-            //var r = byte.Parse(rValue.Text);
-           // var g = byte.Parse(gValue.Text);
-           // var b = byte.Parse(bValue.Text);
-            //colorArea.Background = new SolidColorBrush(Color.FromArgb(r.g.b));
+        private void setColor() {
+            var r = byte.Parse(rValue.Text);
+            var g = byte.Parse(gValue.Text);
+            var b = byte.Parse(bValue.Text);
+            colorArea.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
         }
     }
 
-
+    /// <summary>
+    /// 色と色名を保持するクラス
+    /// </summary>
+    public class MyColor {
+        public Color Color { get; set; }
+        public string Name { get; set; }
+    }
+}
