@@ -269,11 +269,24 @@ namespace CarReportSystem {
 
         }
 
-        //private void Form1_Load(object sender, EventArgs e) {
-            
+        private void Form1_Load(object sender, EventArgs e) {
+            //設定ファイルを逆シリアル化 307
+            try {
+                using (var reader = XmlReader.Create("Settings.xml")) {
+                    var serializer = new XmlSerializer(typeof(Settings));
+                    settings = serializer.Deserialize(reader) as Settings;
+                    BackColor = Color.FromArgb(settings.MainFormColor);
+                }
+            }
+            catch (Exception) {
+            }
 
-            
-        //}
+            //EnabledCheck();
+
+            //btDBAdd.Enabled = btUpDate.Enabled = true;
+
+
+        }
 
         private void dgv_CellContentClick_1(object sender, DataGridViewCellEventArgs e) {
 
@@ -330,22 +343,6 @@ namespace CarReportSystem {
 
         }
 
-        private void Form1_Load_1(object sender, EventArgs e) {
-
-            ////設定ファイルを逆シリアル化 307
-            //using (var reader = XmlReader.Create("Settings.xml")) {
-            //    var serializer = new XmlSerializer(typeof(Settings));
-            //    settings = serializer.Deserialize(reader) as Settings;
-            //    BackColor = Color.FromArgb(settings.MainFormColor);
-            //}
-            //EnabledCheck();
-
-            //btDBAdd.Enabled = btUpDate.Enabled = true;
-
-        }
-
-
-
         private void btUpDate_Click(object sender, EventArgs e) {
 
             if (carReportDBDataGridView.CurrentRow == null) {
@@ -395,9 +392,14 @@ namespace CarReportSystem {
 
         // バイト配列をImageオブジェクトに変換
         public static Image ByteArrayToImage(byte[] b) {
-            ImageConverter imgconv = new ImageConverter();
-            Image img = (Image)imgconv.ConvertFrom(b);
-            return img;
+            try {
+                ImageConverter imgconv = new ImageConverter();
+                Image img = (Image)imgconv.ConvertFrom(b);
+                return img;
+            }
+            catch (Exception) {
+                return null;
+            }        
         }
 
         // Imageオブジェクトをバイト配列に変換
@@ -437,8 +439,6 @@ namespace CarReportSystem {
                 pbPicture.Image = null;
 
         }
-
-
     }
 }
     

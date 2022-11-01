@@ -68,6 +68,8 @@ namespace CarReportSystem {
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btClear = new System.Windows.Forms.Button();
+            this.btExit = new System.Windows.Forms.Button();
+            this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.infosys202213DataSet1)).BeginInit();
@@ -298,7 +300,8 @@ namespace CarReportSystem {
             // 
             this.ファイルFToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aaToolStripMenuItem,
-            this.データベース接続ToolStripMenuItem});
+            this.データベース接続ToolStripMenuItem,
+            this.終了ToolStripMenuItem});
             this.ファイルFToolStripMenuItem.Name = "ファイルFToolStripMenuItem";
             this.ファイルFToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.ファイルFToolStripMenuItem.Text = "ファイル(&F)";
@@ -354,6 +357,7 @@ namespace CarReportSystem {
             // carReportDBDataGridView
             // 
             this.carReportDBDataGridView.AllowUserToAddRows = false;
+            this.carReportDBDataGridView.AllowUserToDeleteRows = false;
             this.carReportDBDataGridView.AutoGenerateColumns = false;
             this.carReportDBDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.carReportDBDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -368,6 +372,7 @@ namespace CarReportSystem {
             this.carReportDBDataGridView.Location = new System.Drawing.Point(86, 295);
             this.carReportDBDataGridView.MultiSelect = false;
             this.carReportDBDataGridView.Name = "carReportDBDataGridView";
+            this.carReportDBDataGridView.ReadOnly = true;
             this.carReportDBDataGridView.RowTemplate.Height = 21;
             this.carReportDBDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.carReportDBDataGridView.Size = new System.Drawing.Size(743, 248);
@@ -388,36 +393,42 @@ namespace CarReportSystem {
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Date";
             this.dataGridViewTextBoxColumn2.HeaderText = "Date";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Author";
             this.dataGridViewTextBoxColumn3.HeaderText = "Author";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Maker";
             this.dataGridViewTextBoxColumn4.HeaderText = "Maker";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "CarName";
             this.dataGridViewTextBoxColumn5.HeaderText = "CarName";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Report";
             this.dataGridViewTextBoxColumn6.HeaderText = "Report";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.DataPropertyName = "Image";
             this.dataGridViewImageColumn1.HeaderText = "Image";
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
             // 
             // btClear
             // 
@@ -429,6 +440,23 @@ namespace CarReportSystem {
             this.btClear.UseVisualStyleBackColor = true;
             this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
+            // btExit
+            // 
+            this.btExit.Location = new System.Drawing.Point(0, 418);
+            this.btExit.Name = "btExit";
+            this.btExit.Size = new System.Drawing.Size(75, 23);
+            this.btExit.TabIndex = 8;
+            this.btExit.Text = "終了";
+            this.btExit.UseVisualStyleBackColor = true;
+            this.btExit.Click += new System.EventHandler(this.btExit_Click);
+            // 
+            // 終了ToolStripMenuItem
+            // 
+            this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Text = "終了";
+            this.終了ToolStripMenuItem.Click += new System.EventHandler(this.btExit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -437,6 +465,7 @@ namespace CarReportSystem {
             this.Controls.Add(this.carReportDBDataGridView);
             this.Controls.Add(this.tbReport);
             this.Controls.Add(this.pbPicture);
+            this.Controls.Add(this.btExit);
             this.Controls.Add(this.btClear);
             this.Controls.Add(this.btUpDate);
             this.Controls.Add(this.button1);
@@ -463,7 +492,8 @@ namespace CarReportSystem {
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -520,6 +550,8 @@ namespace CarReportSystem {
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.Button btExit;
+        private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem;
     }
 }
 
