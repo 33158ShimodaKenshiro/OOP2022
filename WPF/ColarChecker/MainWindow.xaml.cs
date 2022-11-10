@@ -61,13 +61,31 @@ namespace CollarChecker {
             rSlider.Value = mycolor.Color.R;
             gSlider.Value = mycolor.Color.G;
             bSlider.Value = mycolor.Color.B;
+            setColor();
         }
 
         private void stockButton_Click(object sender, RoutedEventArgs e) {
+            stockList.Items.Add("R:" + rValue.Text + " G :" + gValue.Text + "B: " + bValue.Text);
+
+            MyColor stColor = new MyColor();
+            var r = byte.Parse(rValue.Text);
+            var g = byte.Parse(gValue.Text);
+            var b = byte.Parse(bValue.Text);
+
+            stColor.Color = Color.FromRgb(r, g, b);
+
+            var colorName = ((IEnumerable<MyColor>)DataContext)
+                                .Where(c =>c.Color.R == stColor.Color.R &&
+                                       c.Color.R == stColor.Color.R &&
+                                       c.Color.R == stColor.Color.B).FirstOrDefault();
+
+            stockList.Items.Add(colorName?.Name ?? "R:" + rValue.Text + "G:" + gValue.Text + "B: " + bValue.Text);
+            colorList.Insert(0, stColor);
 
         }
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
 
         }
     }
