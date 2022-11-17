@@ -296,6 +296,13 @@ namespace CarReportSystem {
             }
         }
 
+        private void cbRecorder_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
+
+        private void cbCarName_SelectedIndexChanged(object sender, EventArgs e) {
+
+        }
     }
     }
 

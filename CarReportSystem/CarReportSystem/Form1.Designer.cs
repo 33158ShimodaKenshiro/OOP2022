@@ -69,6 +69,7 @@ namespace CarReportSystem {
             this.cbRecorder.Name = "cbRecorder";
             this.cbRecorder.Size = new System.Drawing.Size(121, 20);
             this.cbRecorder.TabIndex = 0;
+            this.cbRecorder.SelectedIndexChanged += new System.EventHandler(this.cbRecorder_SelectedIndexChanged);
             // 
             // cbCarName
             // 
@@ -77,6 +78,7 @@ namespace CarReportSystem {
             this.cbCarName.Name = "cbCarName";
             this.cbCarName.Size = new System.Drawing.Size(121, 20);
             this.cbCarName.TabIndex = 1;
+            this.cbCarName.SelectedIndexChanged += new System.EventHandler(this.cbCarName_SelectedIndexChanged);
             // 
             // dtpDate
             // 
@@ -328,7 +330,7 @@ namespace CarReportSystem {
             // aaToolStripMenuItem
             // 
             this.aaToolStripMenuItem.Name = "aaToolStripMenuItem";
-            this.aaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.aaToolStripMenuItem.Text = "色の設定...";
             this.aaToolStripMenuItem.Click += new System.EventHandler(this.aaToolStripMenuItem_Click);
             // 
