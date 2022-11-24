@@ -30,8 +30,9 @@ namespace WeatherAPP {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbWeather = new System.Windows.Forms.TextBox();
+            this.tbWeather2 = new System.Windows.Forms.TextBox();
+            this.tbWeather3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,7 @@ namespace WeatherAPP {
             // 
             this.btWeatherGet.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btWeatherGet.BackgroundImage = global::WeatherAPP.Properties.Resources.istockphoto_531327234_612x612;
+            this.btWeatherGet.Enabled = false;
             this.btWeatherGet.Location = new System.Drawing.Point(306, 41);
             this.btWeatherGet.Name = "btWeatherGet";
             this.btWeatherGet.Size = new System.Drawing.Size(85, 30);
@@ -68,6 +70,7 @@ namespace WeatherAPP {
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(639, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 84);
@@ -76,6 +79,8 @@ namespace WeatherAPP {
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(508, 41);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 84);
@@ -92,34 +97,44 @@ namespace WeatherAPP {
             this.label1.Text = "天気概況";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // textBox1
+            // tbWeather
             // 
-            this.textBox1.Location = new System.Drawing.Point(508, 203);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 19);
-            this.textBox1.TabIndex = 7;
+            this.tbWeather.Location = new System.Drawing.Point(376, 169);
+            this.tbWeather.Multiline = true;
+            this.tbWeather.Name = "tbWeather";
+            this.tbWeather.Size = new System.Drawing.Size(121, 41);
+            this.tbWeather.TabIndex = 7;
             // 
-            // textBox2
+            // tbWeather2
             // 
-            this.textBox2.Location = new System.Drawing.Point(249, 298);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 140);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.TextChanged += new System.EventHandler(this.tbWeatherinfo_TextChanged);
+            this.tbWeather2.Location = new System.Drawing.Point(528, 169);
+            this.tbWeather2.Multiline = true;
+            this.tbWeather2.Name = "tbWeather2";
+            this.tbWeather2.Size = new System.Drawing.Size(118, 33);
+            this.tbWeather2.TabIndex = 0;
+            this.tbWeather2.TextChanged += new System.EventHandler(this.tbWeatherinfo_TextChanged);
+            // 
+            // tbWeather3
+            // 
+            this.tbWeather3.Location = new System.Drawing.Point(672, 161);
+            this.tbWeather3.Multiline = true;
+            this.tbWeather3.Name = "tbWeather3";
+            this.tbWeather3.Size = new System.Drawing.Size(103, 41);
+            this.tbWeather3.TabIndex = 8;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbWeather3);
+            this.Controls.Add(this.tbWeather);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbTihou);
             this.Controls.Add(this.btWeatherGet);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbWeather2);
             this.Controls.Add(this.tbWeatherinfo);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -139,8 +154,9 @@ namespace WeatherAPP {
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbWeather;
+        private System.Windows.Forms.TextBox tbWeather2;
+        private System.Windows.Forms.TextBox tbWeather3;
     }
 }
 

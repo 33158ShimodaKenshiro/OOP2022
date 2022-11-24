@@ -16,47 +16,148 @@ namespace WeatherAPP {
             InitializeComponent();
         }
 
+        WebClient wc = new WebClient() {
+
+
+            Encoding = Encoding.UTF8
+        };
+
+        
+
         private void btWeatherGet_Click(object sender, EventArgs e) {
 
-            var wc = new WebClient() {
+            try {
+                var dString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/011000.json ");
+                var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+                var json1 = JsonConvert.DeserializeObject<Class1[]>(dString);
 
 
-                Encoding = Encoding.UTF8
-            };
 
-            var dString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/011000.json ");
-            var json = JsonConvert.DeserializeObject<Rootobject>(dString);
-            var json2 = JsonConvert.DeserializeObject<Rootobject2>(dString);
-            tbWeatherinfo.Text = json.text;
+
+                tbWeather.Text = json1[0].timeSeries[0].areas[0].weathers[0];
+                tbWeather2.Text = json1[0].timeSeries[0].areas[0].weathers[1];
+                tbWeather3.Text = json1[0].timeSeries[0].areas[0].weathers[2];
+            }
+            catch (Exception) {
+
+                
+            }
+            
+
+
+
+
+            
+
+            
+
+            
+
+            
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            cbTihou.Items.Add("宗谷地方");
+            cbTihou.Items.Add("上川・留萌地方");
+            cbTihou.Items.Add("網走・北見・紋別地方");
+            cbTihou.Items.Add("十勝地方");
+            cbTihou.Items.Add("釧路・根室地方");
+            cbTihou.Items.Add("胆振・日高地方");
+            cbTihou.Items.Add("石狩・空知・後志地方");
+            cbTihou.Items.Add("渡島・檜山地方");
+            cbTihou.Items.Add("青森県");
+            cbTihou.Items.Add("岩手県");
+            cbTihou.Items.Add("宮城県");
+            cbTihou.Items.Add("秋田県");
+            cbTihou.Items.Add("山形県");
+            cbTihou.Items.Add("福島県");
+            cbTihou.Items.Add("茨城県");
+            cbTihou.Items.Add("栃木県");
+            cbTihou.Items.Add("群馬県");
+            cbTihou.Items.Add("埼玉県");
+            cbTihou.Items.Add("千葉県");
+            cbTihou.Items.Add("東京都");
+            cbTihou.Items.Add("神奈川県");
+            cbTihou.Items.Add("山梨県");
+            cbTihou.Items.Add("長野県");
+            cbTihou.Items.Add("岐阜県");
+            cbTihou.Items.Add("静岡県");
+            cbTihou.Items.Add("愛知県");
+            cbTihou.Items.Add("三重県");
+            cbTihou.Items.Add("新潟県");
+            cbTihou.Items.Add("富山県");
+            cbTihou.Items.Add("石川県");
+            cbTihou.Items.Add("福井県");
+            cbTihou.Items.Add("滋賀県");
+            cbTihou.Items.Add("京都府");
+            cbTihou.Items.Add("大阪府");
+            cbTihou.Items.Add("兵庫県");
+            cbTihou.Items.Add("奈良県");
+            cbTihou.Items.Add("和歌山県");
+            cbTihou.Items.Add("鳥取県");
+            cbTihou.Items.Add("島根県");
+            cbTihou.Items.Add("岡山県");
+            cbTihou.Items.Add("広島県");
+            cbTihou.Items.Add("徳島県");
+            cbTihou.Items.Add("香川県");
+            cbTihou.Items.Add("愛媛県");
+            cbTihou.Items.Add("高知県");
+            cbTihou.Items.Add("山口県");
+            cbTihou.Items.Add("福岡県");
+            cbTihou.Items.Add("佐賀県");
+            cbTihou.Items.Add("長崎県");
+            cbTihou.Items.Add("熊本県");
+            cbTihou.Items.Add("大分県");
+            cbTihou.Items.Add("宮崎県");
+            cbTihou.Items.Add("奄美地方");
+            cbTihou.Items.Add("鹿児島県");
+            cbTihou.Items.Add("沖縄本島地方");
+            cbTihou.Items.Add("大東島地方");
+            cbTihou.Items.Add("宮古島地方");
+            cbTihou.Items.Add("八重山地方");
+            
+
+
+
+            
+        }
+
+        
+
+       
+
+        private void cbTihou_SelectedIndexChanged(object sender, EventArgs e) {
+
+            btWeatherGet.Enabled = true;
             int index = cbTihou.SelectedIndex;
-
-            string delimiter = "\n\n";
-
-            string text = delimiter;
-            char[] chararray = text.ToCharArray();
-            string[] arry = json.text.Split();
-
-
-
             switch (index) {
                 case 0:
-                    dString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/011000.json ");
+                    var dString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/011000.json ");
+                    var cString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/011000.json ");
 
-                    jsonweather jsontex = JsonSerializer.Deserialize<jsonweather>();
 
-                    json = JsonConvert.DeserializeObject<Rootobject>(dString);
-                    json2 = JsonConvert.DeserializeObject<Rootobject2>(dString);
+                    var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+                    var json1 = JsonConvert.DeserializeObject<Class1[]>(cString);
 
 
                     tbWeatherinfo.Text = json.text;
-                    textBox2.Text = json.
+                    tbWeather.Text = json1[0].timeSeries[0].areas[0].weathers[0];
+                    tbWeather2.Text = json1[0].timeSeries[0].areas[0].weathers[1];
+                    tbWeather3.Text = json1[0].timeSeries[0].areas[0].weathers[2];
+
 
 
 
                     break;
                 case 1:
                     dString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/012000.json ");
+                    cString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/forecast/011000.json ");
                     json = JsonConvert.DeserializeObject<Rootobject>(dString);
+                    json1 = JsonConvert.DeserializeObject<Class1[]>(cString);
+
+
                     tbWeatherinfo.Text = json.text;
                     
                     break;
@@ -339,89 +440,6 @@ namespace WeatherAPP {
 
 
             }
-
-            
-
-            
-
-            
-
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e) {
-            cbTihou.Items.Add("宗谷地方");
-            cbTihou.Items.Add("上川・留萌地方");
-            cbTihou.Items.Add("網走・北見・紋別地方");
-            cbTihou.Items.Add("十勝地方");
-            cbTihou.Items.Add("釧路・根室地方");
-            cbTihou.Items.Add("胆振・日高地方");
-            cbTihou.Items.Add("石狩・空知・後志地方");
-            cbTihou.Items.Add("渡島・檜山地方");
-            cbTihou.Items.Add("青森県");
-            cbTihou.Items.Add("岩手県");
-            cbTihou.Items.Add("宮城県");
-            cbTihou.Items.Add("秋田県");
-            cbTihou.Items.Add("山形県");
-            cbTihou.Items.Add("福島県");
-            cbTihou.Items.Add("茨城県");
-            cbTihou.Items.Add("栃木県");
-            cbTihou.Items.Add("群馬県");
-            cbTihou.Items.Add("埼玉県");
-            cbTihou.Items.Add("千葉県");
-            cbTihou.Items.Add("東京都");
-            cbTihou.Items.Add("神奈川県");
-            cbTihou.Items.Add("山梨県");
-            cbTihou.Items.Add("長野県");
-            cbTihou.Items.Add("岐阜県");
-            cbTihou.Items.Add("静岡県");
-            cbTihou.Items.Add("愛知県");
-            cbTihou.Items.Add("三重県");
-            cbTihou.Items.Add("新潟県");
-            cbTihou.Items.Add("富山県");
-            cbTihou.Items.Add("石川県");
-            cbTihou.Items.Add("福井県");
-            cbTihou.Items.Add("滋賀県");
-            cbTihou.Items.Add("京都府");
-            cbTihou.Items.Add("大阪府");
-            cbTihou.Items.Add("兵庫県");
-            cbTihou.Items.Add("奈良県");
-            cbTihou.Items.Add("和歌山県");
-            cbTihou.Items.Add("鳥取県");
-            cbTihou.Items.Add("島根県");
-            cbTihou.Items.Add("岡山県");
-            cbTihou.Items.Add("広島県");
-            cbTihou.Items.Add("徳島県");
-            cbTihou.Items.Add("香川県");
-            cbTihou.Items.Add("愛媛県");
-            cbTihou.Items.Add("高知県");
-            cbTihou.Items.Add("山口県");
-            cbTihou.Items.Add("福岡県");
-            cbTihou.Items.Add("佐賀県");
-            cbTihou.Items.Add("長崎県");
-            cbTihou.Items.Add("熊本県");
-            cbTihou.Items.Add("大分県");
-            cbTihou.Items.Add("宮崎県");
-            cbTihou.Items.Add("奄美地方");
-            cbTihou.Items.Add("鹿児島県");
-            cbTihou.Items.Add("沖縄本島地方");
-            cbTihou.Items.Add("大東島地方");
-            cbTihou.Items.Add("宮古島地方");
-            cbTihou.Items.Add("八重山地方");
-            
-
-
-
-            
-        }
-
-        
-
-       
-
-        private void cbTihou_SelectedIndexChanged(object sender, EventArgs e) {
-
-            
 
         }
 

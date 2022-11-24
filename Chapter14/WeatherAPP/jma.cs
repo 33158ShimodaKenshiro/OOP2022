@@ -9,6 +9,11 @@ namespace WeatherAPP {
         public string publishingOffice { get; set; }
         public DateTime reportDatetime { get; set; }
         public string text { get; set; }
+        public string targetArea { get; set; }
+        public string headlineText { get; set; }
+        public string timeSeries { get; set; }
+        public string weathers { get; set; }
+
 
         public Centers centers { get; set; }
         public Offices offices { get; set; }
@@ -19127,6 +19132,14 @@ public class Rootobject2 {
         public string name { get; set; }
         public string code { get; set; }
     }
+public class jsonweather {
+    public string publishingOffice { get; set; }
+    public string reportDatetime { get; set; }
+    public string targetArea { get; set; }
+    public string headlineText { get; set; }
+    public string text { get; set; }
+}
+
 
 
 
