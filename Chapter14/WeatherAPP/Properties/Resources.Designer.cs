@@ -63,6 +63,26 @@ namespace WeatherAPP.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap _7e2e1db5 {
+            get {
+                object obj = ResourceManager.GetObject("7e2e1db5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap elly20160701025103_TP_V {
+            get {
+                object obj = ResourceManager.GetObject("elly20160701025103_TP_V", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap istockphoto_531327234_612x612 {
             get {
                 object obj = ResourceManager.GetObject("istockphoto-531327234-612x612", resourceCulture);
